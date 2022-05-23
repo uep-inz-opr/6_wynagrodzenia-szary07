@@ -54,7 +54,7 @@ for y in range (liczba_pracownikow):
     wynagrodzenie_calkowite += pracownicy[y].__suma__()
     imie = pracownicy[x].imie
     pensja = pracownicy[x].pensja
-    print(imie, f"{pracownicy[y].__obliczanie_netto__():.2f}", f"{pracownicy[y].__obliczanie_netto__():.2f}", f"{pracownicy[y].__obliczanieskladki__():.2f}", f"{pracownicy[y].__koszt__():.2f}")
+    print(imie, f"{pracownicy[y].__obliczanie_netto__():.2f}", f"{pracownicy[y].__obliczanieskladki__():.2f}", f"{pracownicy[y].__koszt__():.2f}")
 
 print(wynagrodzenie_calkowite)
 
