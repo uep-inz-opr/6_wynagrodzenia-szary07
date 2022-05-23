@@ -46,7 +46,7 @@ for x in range (liczba_pracownikow):
     obiekt_pracownik = Pracownik(imie,pensja)
     pracownicy.append(obiekt_pracownik)
     
-print(pracownicy)
+#print(pracownicy)
 
 wynagrodzenie_calkowite = 0
 
