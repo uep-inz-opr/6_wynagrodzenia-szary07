@@ -1,14 +1,14 @@
 
 class Pracownik:
     
-   def __init__(self, imie, pensja):
+    def __init__(self, imie, pensja):
      self.imie = str(imie)
      self.pensja = int(pensja)
 
-   def __repr__(self):
+    def __repr__(self):
        return f"{self.imie} {self.pensja}"
 
-   def __obliczanie_netto__(self):
+    def __obliczanie_netto__(self):
        a = round(round(self.pensja * 0.0976,2) + round(self.pensja * 0.015,2) + round(self.pensja * 0.0245,2), 2)
        b = round(self.pensja-a,2)
        c = round(b*0.09, 2)
@@ -20,20 +20,18 @@ class Pracownik:
        j = round(i-e, 2)
        k = round(j, 0)
        self.pensjanetto = round((self.pensja - a - c - k), 2)
-       return self.pensjanetto  
+       return self.pensjanetto
     
-    def __obliczanie_skladki__(self):
+    def __obliczanieskladki__(self):
         self.skladki = round(self.pensja *0.0976, 2) + round(self.pensja*0.065, 2) + round(self.pensja*0.0193,2) + round(self.pensja*0.0245,2) + round(self.pensja*0.001,2)
-			return round(self.skladki, 2)
+        return round(self.skladki,2)
 
-		def suma_koszt(self):
-			self.koszt = self.pensja + round(self.pensja *0.0976,2) + round(self.pensja*0.065,2) + round(self.pensja*0.0193,2) + round(self.pensja*0.0245,2) + round(self.pensja*0.001,2)
-			return round(self.koszt, 2)
+    def __koszt__(self):
+        self.koszt = round(self.pensja + self.skladki, 2)
+        return self.koszt
+    def __suma__(self):
+        return round(self.pensja + self.__obliczanieskladki__(),2)  
 
-		def suma_calkowity(self):
-			return round(self.pensja + self.suma_skladki(),2)  
-   def __skladki_pracodawcy__(self):
-   def __laczny_koszt_na_pracownika__(self):
 
 
 
@@ -50,6 +48,15 @@ for x in range (liczba_pracownikow):
     
 print(pracownicy)
 
+wynagrodzenie_calkowite = 0
+
+for y in range (liczba_pracownikow):
+    wynagrodzenie_calkowite += pracownicy[y].__suma__
+    imie = pracownicy[x].imie
+    pensja = pracownicy[x].pensja
+    print(imie, round(pracownicy[y].__obliczanie_netto__(),2), round(pracownicy[y].__obliczanieskladki__(),2), round(pracownicy[y].__koszt__(),2))
+
+print(wynagrodzenie_calkowite)
 
 
 
